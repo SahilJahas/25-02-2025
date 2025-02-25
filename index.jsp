@@ -41,14 +41,15 @@
             <div class="mobile-menu-btn"><i class="fa fa-bars"></i></div>
             <nav class="main-menu top-menu">
                 <ul>
-                    <li class="active"><a href="index.jsp">Home</a></li>
+                <li class="active"><a href="index.jsp">Home</a></li>
                     <li><a href="about.html">About Us</a></li>
-                    <li><a href="room.html">Apartments</a></li>
+                    <li><a href="room.jsp">Apartments</a></li>
                     <li><a href="amenities.html">Amenities</a></li>
                     <li><a href="booking.jsp">Booking</a></li>
-                    <li><a href="login.html">Login</a></li>
+                     <li><a href="register.jsp">Register</a></li>
+                    <li><a href="login.jsp">Login</a></li>
                     <li><a href="contact.html">Contact Us</a></li>
-                </ul>
+            </ul>
             </nav>
         </header>
         <!-- Header Section End -->
