@@ -56,76 +56,59 @@
         
         <!-- Header Bottom Start -->
         <div id="header-bottom">
-            <!-- Search Section Start -->
-            <div id="search" class="search-slider">
-                <div class="container">
-                    <h1>Feel at Home When You're Away</h1>
-                    <div class="form-row">
-                        <div class="control-group col-md-3">
-                            <label>Check-In</label>
-                            <div class="form-group">
-                                <div class="input-group date" id="date-3" data-target-input="nearest">
-                                    <input type="text" class="form-control datetimepicker-input" data-target="#date-3"/>
-                                    <div class="input-group-append" data-target="#date-3" data-toggle="datetimepicker">
-                                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                                    </div>
-                                </div>
+<!-- Search Section Start -->
+<div id="search" class="search-slider">
+    <div class="container">
+        <h1>Feel at Home When You're Away</h1>
+        <form action="searchResults.jsp" method="GET">
+            <div class="form-row">
+                <div class="control-group col-md-3">
+                    <label>Check-In</label>
+                    <div class="form-group">
+                        <div class="input-group date" id="date-3" data-target-input="nearest">
+                            <input type="text" class="form-control datetimepicker-input" data-target="#date-3" name="check_in"/>
+                            <div class="input-group-append" data-target="#date-3" data-toggle="datetimepicker">
+                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                             </div>
-                        </div>
-                        <div class="control-group col-md-3">
-                            <label>Check-Out</label>
-                            <div class="form-group">
-                                <div class="input-group date" id="date-4" data-target-input="nearest">
-                                    <input type="text" class="form-control datetimepicker-input" data-target="#date-4"/>
-                                    <div class="input-group-append" data-target="#date-4" data-toggle="datetimepicker">
-                                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="control-group col-md-3">
-                            <div class="form-row">
-                                <div class="control-group col-md-6">
-                                    <label>Adult</label>
-                                    <select class="custom-select">
-                                        <option selected>0</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                        <option value="8">8</option>
-                                        <option value="9">9</option>
-                                        <option value="10">10</option>
-                                    </select>
-                                </div>
-                                <div class="control-group col-md-6 control-group-kid">
-                                    <label>Kid</label>
-                                    <select class="custom-select">
-                                        <option selected>0</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                        <option value="8">8</option>
-                                        <option value="9">9</option>
-                                        <option value="10">10</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="control-group col-md-3">
-                            <button class="btn btn-block">Search</button>
                         </div>
                     </div>
                 </div>
+                <div class="control-group col-md-3">
+                    <label>Check-Out</label>
+                    <div class="form-group">
+                        <div class="input-group date" id="date-4" data-target-input="nearest">
+                            <input type="text" class="form-control datetimepicker-input" data-target="#date-4" name="check_out"/>
+                            <div class="input-group-append" data-target="#date-4" data-toggle="datetimepicker">
+                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="control-group col-md-3">
+                    <div class="form-row">
+                        <div class="control-group col-md-6 control-group-price">
+                            <label>Price Range</label>
+                            <select class="custom-select" name="price">
+                                <option selected value="Under 700">Under &#8377;700</option>
+                                <option value="100-200">&#8377;800 - &#8377;1000</option>
+                                <option value="200-300">&#8377;1000 - &#8377;1500</option>
+                                <option value="300-400">&#8377;1500 - &#8377;2000</option>
+                                <option value="400+">&#8377;2000+</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="control-group col-md-3">
+                    <button type="submit" class="btn btn-block">Search</button>
+                </div>
             </div>
-            <!-- Search Section End -->
+        </form>
+    </div>
+</div>
+<!-- Search Section End -->
+
+
+
             <!-- Slider Section Start -->
 <div id="headerSlider" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
@@ -621,7 +604,29 @@ Don’t miss out on exclusive deals and discounts! Subscribe to our newsletter a
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.0/dist/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-        
+ <script type="text/javascript">
+    $(document).ready(function () {
+        // Initialize the datetimepicker for both check-in and check-out with the same format
+        $('#date-3').datetimepicker({
+            format: 'YYYY-MM-DD', // Consistent format for check-in
+            useCurrent: false // Disables setting current date
+        });
+
+        $('#date-4').datetimepicker({
+            format: 'YYYY-MM-DD', // Same format for check-out
+            useCurrent: false // Disables setting current date
+        });
+
+        // Make sure check-out date is always later than check-in
+        $('#date-3').on("change.datetimepicker", function (e) {
+            $('#date-4').datetimepicker('minDate', e.date);
+        });
+
+        $('#date-4').on("change.datetimepicker", function (e) {
+            $('#date-3').datetimepicker('maxDate', e.date);
+        });
+    });
+</script>       
 
     </body>
 </html>
